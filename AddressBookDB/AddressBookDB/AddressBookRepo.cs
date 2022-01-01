@@ -88,6 +88,39 @@ namespace AddressBookDB
             return false;
         }
 
+        public bool DeleteContact(string FirstName)
+        {
+            try
+            {
+                using (this.connection)
+                {
+                    //var qury=values()
+                    FirstName = FirstName;
+                    SqlCommand command = new SqlCommand("SpDeleteContact", this.connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@FirstName", FirstName);
+                    this.connection.Open();
+                    var result = command.ExecuteNonQuery();
+                    this.connection.Close();
+                    if (result != 0)
+                    {
+
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                this.connection.Close();
+            }
+            return false;
+        }
+
 
     }
 

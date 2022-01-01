@@ -19,9 +19,12 @@ namespace AddressBookDB
             model.Email = "arati@gmail.com";
             //if (addressBookRepo.AddContact(model))
             //    Console.WriteLine("Record Added Successfully..");
-            if (addressBookRepo.EditContact(model))
-                Console.WriteLine("Record Updated Successfully..");
-            Console.ReadKey();
+            //if (addressBookRepo.EditContact(model))
+            //    Console.WriteLine("Record Updated Successfully..");
+            if(addressBookRepo.DeleteContact("Nilam"))
+                 Console.WriteLine("Record Deleted Successfully..");
+
+                Console.ReadKey();
 
         }
     }
