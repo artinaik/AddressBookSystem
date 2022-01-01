@@ -33,3 +33,21 @@ insert into AddressBook values
 (
 @FirstName,@LastName,@Address,@City,@State,@Zip,@PhoneNumber,@Email)
 end
+
+
+create procedure [dbo].[SpEditContact]
+(
+@FirstName varchar(255),
+@LastName varchar(255),
+@Address varchar(255),
+@City varchar(255),
+@State varchar(255),
+@Zip varchar(255),
+@PhoneNumber varchar(255),
+@Email varchar(255)
+)
+as
+begin
+update AddressBook set LastName=@LastName,Address=@Address,City=@City,State=@State,Zip=@Zip,PhoneNumber=@PhoneNumber,Email=@Email
+where FirstName=@FirstName 
+end
